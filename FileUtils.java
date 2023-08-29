@@ -41,4 +41,19 @@ public class FileUtils {
 
         return str;
     }
+
+    public static int countCharacters(String fileName) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        int counter = 0;
+        while (reader.ready()) {
+            reader.read();
+            counter++;
+        }
+        reader.close();
+        return counter;
+    }
+
+    public static void main(String[] args) throws IOException {
+        System.out.println(countCharacters("tester.java"));
+    }
 }
